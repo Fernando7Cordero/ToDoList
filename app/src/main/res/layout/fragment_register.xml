@@ -2,12 +2,11 @@
 <androidx.constraintlayout.widget.ConstraintLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    android:id="@+id/mainLayout"
+    android:id="@+id/registerLayout"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@android:color/white">
 
-    <!-- Guideline al 50% de altura -->
     <androidx.constraintlayout.widget.Guideline
         android:id="@+id/guideline_50"
         android:layout_width="wrap_content"
@@ -26,16 +25,28 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent" />
 
+    <!-- Flecha de regreso -->
+    <ImageView
+        android:id="@+id/btnGoToLogin"
+        android:layout_width="24dp"
+        android:layout_height="24dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="16dp"
+        android:src="@android:drawable/ic_media_previous"
+        android:contentDescription="Regresar"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
     <!-- Cuadro negro -->
     <View
         android:id="@+id/blackSquare"
         android:layout_width="32dp"
         android:layout_height="32dp"
-        android:layout_marginStart="16dp"
         android:layout_marginTop="16dp"
+        android:layout_marginStart="16dp"
         android:background="@android:color/black"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toBottomOf="@id/btnGoToLogin"
+        app:layout_constraintStart_toStartOf="parent" />
 
     <!-- Texto Bienvenido -->
     <TextView
@@ -55,22 +66,42 @@
         android:id="@+id/textSub"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Inicia sesión para continuar"
+        android:text="Regístrate para continuar"
         android:textSize="16sp"
         android:textColor="@android:color/white"
         android:layout_marginTop="8dp"
         app:layout_constraintTop_toBottomOf="@id/textBienvenido"
         app:layout_constraintStart_toStartOf="@id/textBienvenido" />
 
-    <!-- Input Correo -->
+    <!-- Input Nombre -->
     <com.google.android.material.textfield.TextInputLayout
-        android:id="@+id/inputCorreoLayout"
+        android:id="@+id/inputNombreLayout"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="16dp"
         android:layout_marginEnd="16dp"
         android:layout_marginTop="24dp"
         app:layout_constraintTop_toBottomOf="@id/guideline_50"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent">
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/inputNombre"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Nombre"
+            android:inputType="textPersonName" />
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <!-- Input Correo -->
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/inputCorreoLayout"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginEnd="16dp"
+        app:layout_constraintTop_toBottomOf="@id/inputNombreLayout"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent">
 
@@ -102,46 +133,20 @@
             android:inputType="textPassword" />
     </com.google.android.material.textfield.TextInputLayout>
 
-    <!-- Botón Ingresar -->
+    <!-- Botón Registrar -->
     <com.google.android.material.button.MaterialButton
-        android:id="@+id/btnIngresar"
+        android:id="@+id/btnRegistrar"
         android:layout_width="0dp"
         android:layout_height="48dp"
         android:layout_marginStart="16dp"
         android:layout_marginTop="16dp"
         android:layout_marginEnd="16dp"
-        android:text="Ingresar"
+        android:text="Registrar"
+        android:textColor="@android:color/white"
         app:backgroundTint="#4FC3F7"
-        app:cornerRadius="24dp"
+        app:cornerRadius="32dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/inputContrasenaLayout" />
 
-    <!-- Registrarse -->
-    <TextView
-        android:id="@+id/btnGoToRegister"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Registrarse"
-        android:textColor="#4FC3F7"
-        android:textStyle="bold"
-        android:layout_marginStart="16dp"
-        android:layout_marginBottom="16dp"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintBottom_toBottomOf="parent" />
-
-    <!-- Restablecer contraseña -->
-    <TextView
-        android:id="@+id/tvRestablecer"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Restablecer contraseña"
-        android:textColor="#4FC3F7"
-        android:textStyle="bold"
-        android:layout_marginEnd="16dp"
-        android:layout_marginBottom="16dp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintBottom_toBottomOf="parent" />
-
 </androidx.constraintlayout.widget.ConstraintLayout>
-
