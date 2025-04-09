@@ -53,5 +53,6 @@ class MainActivity : AppCompatActivity() {
 
     private fun hideLoader() {
         loader.visibility = View.GONE
+        println("Loader ocultado correctamente")
     }
 }
